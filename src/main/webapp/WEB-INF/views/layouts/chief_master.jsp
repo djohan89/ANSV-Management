@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="<c:url value='/assets/css/style.css' />">
     <!-- Font Awesome -->
 	<link rel="stylesheet" href="<c:url value='/assets/plugins/fontawesome-free/css/all.min.css' />">
+	<!--Carousel css  -->
+	<link rel="stylesheet" href="<c:url value='/assets/plugins/OwlCarousel/assets/owl.theme.default.min.css' />">
+	<link rel="stylesheet" href="<c:url value='/assets/plugins/OwlCarousel/assets/owl.carousel.min.css' />">
 	
     <link rel="stylesheet" href="<c:url value='/assets/css/datatable/jquery.dataTables.min.css' />">
     
@@ -71,6 +74,7 @@
 	<script src="<c:url value='/assets/js/plugins/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/assets/js/ripple.js' />"></script>
 	<script src="<c:url value='/assets/js/pcoded.min.js' />"></script>
+	<script src="<c:url value='/assets/plugins/OwlCarousel/owl.carousel.min.js' />"></script>
 	
 	<script src="<c:url value='/assets/js/datatable/jquery.dataTables.min.js' />"></script>
 	
@@ -227,6 +231,21 @@
 		    } );
 		    /* ===== End Datatable 3 ===== */
 		}
+		
+		var owl = $('.owl-carousel');
+	  	owl.owlCarousel({
+	       items: 1,
+	       loop: true,
+	       nav: true,
+	       margin: 10,
+	       autoplay: true,
+	       autoplayTimeout: 5000,
+	       responsiveClass: true,
+	       autoplayHoverPause: true
+	   	});
+		$(document).ready(function(){
+			
+		});
 	</script>
 </body>
 </html>
