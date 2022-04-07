@@ -60,8 +60,31 @@
 							</div>
 						</div>
 					</div>
-					<div class="card-body">
-						<p>Đây là danh sách toàn bộ pic được phép hoạt động.</p>
+					<div class="card-body table-responsive">
+						<table id="table_user_all" class=" table-hover display" style="width: 100%;">
+							<thead>
+								<tr>
+									<th>STT</th>
+									<th>Mã nhân viên</th>
+									<th>Tên</th>
+									<th>Quyền</th>
+									<th>Ngày tạo</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<c:forEach items="${list_users}" varStatus="index" var="user" >
+									<tr>
+										<td>${index.count }</td>
+										<td>${user.staff_code }</td>
+										<td>${user.display_name }</td>
+										<td>${user.role }</td>
+										<td>${user.created_at }</td>
+									</tr>
+								
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
@@ -82,8 +105,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <p>Đây là danh sách toàn bộ pic bị cấm hoạt động.</p>
+                    <div class="card-body table-responsive">
+                        <table id="table_user_ban" class=" table-hover display" style="width: 100%;">
+							<thead>
+								<tr>
+									<th>STT</th>
+									<th>Mã nhân viên</th>
+									<th>Tên</th>
+									<th>Quyền</th>
+									<th>Ngày tạo</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<c:forEach items="${list_users_ban}" varStatus="index_ban" var="user_ban" >
+									<tr>
+										<td>${index.count }</td>
+										<td>${user_ban.staff_code }</td>
+										<td>${user_ban.display_name }</td>
+										<td>${user_ban.role }</td>
+										<td>${user_ban.created_at }</td>
+									</tr>
+								
+								</c:forEach>
+							</tbody>
+						</table>
                     </div>
                 </div>
 			</div>
