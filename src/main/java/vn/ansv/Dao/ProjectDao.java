@@ -99,6 +99,7 @@ public class ProjectDao extends BaseDao {
 				+ "INNER JOIN pic ON detail.pic_id = pic.id "
 				+ "INNER JOIN users ON pic.user_id = users.id "
 				+ "INNER JOIN project ON pic.project_id = project.id "
+				+ "INNER JOIN customer ON project.customer_id = customer.id "
 				+ "INNER JOIN project_type ON detail.type_id = project_type.id "
 				+ "INNER JOIN priority ON detail.priority_id = priority.id "
 				+ "INNER JOIN project_status ON detail.status_id = project_status.id "
