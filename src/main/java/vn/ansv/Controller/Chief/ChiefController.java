@@ -34,7 +34,12 @@ public class ChiefController extends ChiefBaseController {
 	@RequestMapping(value = { "/chief/detail/{type}_{id}" }, method = RequestMethod.GET)
 	public ModelAndView view_detail(@PathVariable int type, @PathVariable int id) {
 		
-		_mvShare.addObject("project_detail", _projectService.getProjectDetail(type, id));
+		if (type == 1) {
+			_mvShare.addObject("project_detail_1", _projectService.getProjectDetail(type, id));
+		} else if (type == 2 || type == 3) {
+			_mvShare.addObject("project_detail_2", _projectService.getProjectDetail(type, id));
+		}
+		
 		_mvShare.setViewName("chief/project_detail");
 		
 		return _mvShare;
