@@ -12,7 +12,7 @@
 				<div class="row align-items-center">
 					<div class="col-md-12">
 						<div class="page-header-title float-left">
-							<h5 class="m-b-10">Chi tiết dự án</h5>
+							<h5 class="m-b-10">Chi tiết dự án - ${project_detail.project_type }</h5>
 						</div>
 						<ul class="breadcrumb float-right">
 							<li class="breadcrumb-item">
@@ -39,7 +39,7 @@
 			<div class="col-sm-8">
 				<div class="card">
 					<div class="card-header">
-						<h5>Chi tiết dự án</h5>
+						<h5>${project_detail.project_name}</h5>
 						<div class="card-header-right">
 							<div class="btn-group card-option">
 								<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,101 +60,221 @@
 							</div>
 						</div>
 					</div>
-					<div class="card-body">
-						<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active text-uppercase" id="home-tab" data-toggle="tab" 
-									href="#table-detail" role="tab" aria-controls="home" aria-selected="true">
-									Bảng kế hoạch</a></li>
-							<li class="nav-item">
-								<a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" 
-									href="#detail-status" role="tab" aria-controls="contact" aria-selected="false">
-									Tình trạng</a></li>
-							<li class="nav-item">
-								<a class="nav-link text-uppercase" id="profile-tab" data-toggle="tab" 
-									href="#detail-plan" role="tab" aria-controls="profile" aria-selected="false">
-									Kế hoạch</a></li>
-							<li class="nav-item">
-								<a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" 
-									href="#detail-result" role="tab" aria-controls="contact" aria-selected="false">
-									Kết quả</a></li>
-						</ul>
-						<div class="tab-content" id="myTabContent">
-							<div class="tab-pane fade show active" id="table-detail" role="tabpanel"
-								aria-labelledby="digital-transfer-tab">
-								<table class="table table-hover table-bordered">
-									<tr>
-										<th style="width: 20%;" class="text-center">Kế hoạch</th>
-										<th class="text-center">Số tiền<br />(${project_detail.currency_unit})</th>
-										<th class="text-center" style="width: 26%;">Ngày thanh toán<br/>(D / M / Y)</th>
-										<th class="text-center" style="width: 26%;">Nghiệm thu<br/>(D / M / Y)</th>
-									</tr>
-									<tr class="text-center">
-										<th>DAC</th>
-										<td class="text-right">
-											<c:if test="${project_detail.so_tien_DAC != 0}">
-												<fmt:formatNumber type="number" value="${project_detail.so_tien_DAC}" />
-											</c:if>
-										</td>
-										<td><fmt:formatDate value="${project_detail.ke_hoach_thanh_toan_DAC}" pattern="dd / MM / yyyy" /></td>
-										<td><fmt:formatDate value="${project_detail.DAC}" pattern="dd / MM / yyyy" /></td>
-									</tr>
-									<tr class="text-center">
-										<th>PAC</th>
-										<td class="text-right">
-											<c:if test="${project_detail.so_tien_PAC != 0}">
-												<fmt:formatNumber type="number" value="${project_detail.so_tien_PAC}" />
-											</c:if>
-										</td>
-										<td><fmt:formatDate value="${project_detail.ke_hoach_thanh_toan_PAC}" pattern="dd / MM / yyyy" /></td>
-										<td><fmt:formatDate value="${project_detail.PAC}" pattern="dd / MM / yyyy" /></td>
-									</tr>
-									<tr class="text-center">
-										<th>FAC</th>
-										<td class="text-right">
-											<c:if test="${project_detail.so_tien_FAC != 0}">
-												<fmt:formatNumber type="number" value="${project_detail.so_tien_FAC}" />
-											</c:if>
-										</td>
-										<td><fmt:formatDate value="${project_detail.ke_hoach_thanh_toan_FAC}" pattern="dd / MM / yyyy" /></td>
-										<td><fmt:formatDate value="${project_detail.FAC}" pattern="dd / MM / yyyy" /></td>
-									</tr>
-									<tr class="text-center">
-										<th>Tổng</th>
-										<td class="text-right">
-											<c:if test="${project_detail.tong_gia_tri != 0}">
-												<fmt:formatNumber type="number" value="${project_detail.tong_gia_tri }" />
-											</c:if>
-										</td>
-										<td>N/A</td>
-										<td>N/A</td>
-									</tr>
-									<tr class="text-center">
-										<th>Tạm ứng</th>
-										<td class="text-right">
-											<c:if test="${project_detail.so_tien_tam_ung != 0}">
-												<fmt:formatNumber type="number" value="${project_detail.so_tien_tam_ung }" />
-											</c:if>
-										</td>
-										<td><fmt:formatDate value="${project_detail.ke_hoach_tam_ung}" pattern="dd / MM / yyyy" /></td>
-										<td>N/A</td>
-									</tr>
-								</table>
-							</div>
-							<div class="tab-pane fade" id="detail-status"
-								role="tabpanel" aria-labelledby="deployment-tab">
-								<p>${project_detail.general_issue}</p>
-							</div>
-							<div class="tab-pane fade" id="detail-plan" role="tabpanel"
-								aria-labelledby="telecom-tab">
-								<p>${project_detail.ke_hoach}</p>
-							</div>
-							<div class="tab-pane fade" id="detail-result" role="tabpanel"
-								aria-labelledby="telecom-tab">
-								<p>${project_detail.ket_qua_thuc_hien_ke_hoach}</p>
+					<c:if test="${type == 1}">
+						<div class="card-body">
+							<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active text-uppercase" id="about-tab" data-toggle="tab" 
+										href="#about" role="tab" aria-controls="about" aria-selected="true">
+										Tổng quan</a></li>
+								
+								<li class="nav-item">
+									<a class="nav-link text-uppercase" id="home-tab" data-toggle="tab" 
+										href="#table-detail" role="tab" aria-controls="home" aria-selected="true">
+										Bảng kế hoạch</a></li>
+								<li class="nav-item">
+									<a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" 
+										href="#detail-status" role="tab" aria-controls="contact" aria-selected="false">
+										Tình trạng</a></li>
+								<li class="nav-item">
+									<a class="nav-link text-uppercase" id="profile-tab" data-toggle="tab" 
+										href="#detail-plan" role="tab" aria-controls="profile" aria-selected="false">
+										Kế hoạch</a></li>
+								<li class="nav-item">
+									<a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" 
+										href="#detail-result" role="tab" aria-controls="contact" aria-selected="false">
+										Kết quả</a></li>
+							</ul>
+							<div class="tab-content" id="myTabContent">
+								<div class="tab-pane fade show active" id="about"
+									role="tabpanel" aria-labelledby="deployment-tab">
+									<table class="table table-hover table-bordered">
+										<tr>
+											<th>Dự án/Gói thầu</th>
+											<td>${project_detail.project_name }</td>
+										</tr>
+										<tr>
+											<th>Khách hàng</th>
+											<td>${project_detail.customer }</td>
+										</tr>
+										<tr>
+											<th>Mô tả dự án</th>
+											<td>${project_detail.description }</td>
+										</tr>
+										<tr>
+											<th>Phạm vi cung cấp</th>
+											<td>${project_detail.pham_vi_cung_cap }</td>
+										</tr>
+										<tr>
+											<th>Mô tả dự án</th>
+											<td>${project_detail.description }</td>
+										</tr>
+										<tr>
+											<th>Người phụ trách</th>
+											<td>${project_detail.pic_name }</td>
+										</tr>
+										
+									</table>
+								</div>
+								<div class="tab-pane fade show" id="table-detail" role="tabpanel"
+									aria-labelledby="digital-transfer-tab">
+									<table class="table table-hover table-bordered">
+										<tr>
+											<th style="width: 20%;" class="text-center">Kế hoạch</th>
+											<th class="text-center">Số tiền<br />(${project_detail.currency_unit})</th>
+											<th class="text-center" style="width: 26%;">Ngày thanh toán<br/>(D / M / Y)</th>
+											<th class="text-center" style="width: 26%;">Nghiệm thu<br/>(D / M / Y)</th>
+										</tr>
+										<tr class="text-center">
+											<th>DAC</th>
+											<td class="text-right">
+												<c:if test="${project_detail.so_tien_DAC != 0}">
+													<fmt:formatNumber type="number" value="${project_detail.so_tien_DAC}" />
+												</c:if>
+											</td>
+											<td><fmt:formatDate value="${project_detail.ke_hoach_thanh_toan_DAC}" pattern="dd / MM / yyyy" /></td>
+											<td><fmt:formatDate value="${project_detail.DAC}" pattern="dd / MM / yyyy" /></td>
+										</tr>
+										<tr class="text-center">
+											<th>PAC</th>
+											<td class="text-right">
+												<c:if test="${project_detail.so_tien_PAC != 0}">
+													<fmt:formatNumber type="number" value="${project_detail.so_tien_PAC}" />
+												</c:if>
+											</td>
+											<td><fmt:formatDate value="${project_detail.ke_hoach_thanh_toan_PAC}" pattern="dd / MM / yyyy" /></td>
+											<td><fmt:formatDate value="${project_detail.PAC}" pattern="dd / MM / yyyy" /></td>
+										</tr>
+										<tr class="text-center">
+											<th>FAC</th>
+											<td class="text-right">
+												<c:if test="${project_detail.so_tien_FAC != 0}">
+													<fmt:formatNumber type="number" value="${project_detail.so_tien_FAC}" />
+												</c:if>
+											</td>
+											<td><fmt:formatDate value="${project_detail.ke_hoach_thanh_toan_FAC}" pattern="dd / MM / yyyy" /></td>
+											<td><fmt:formatDate value="${project_detail.FAC}" pattern="dd / MM / yyyy" /></td>
+										</tr>
+										<tr class="text-center">
+											<th>Tổng</th>
+											<td class="text-right">
+												<c:if test="${project_detail.tong_gia_tri != 0}">
+													<fmt:formatNumber type="number" value="${project_detail.tong_gia_tri }" />
+												</c:if>
+											</td>
+											<td>N/A</td>
+											<td>N/A</td>
+										</tr>
+										<tr class="text-center">
+											<th>Tạm ứng</th>
+											<td class="text-right">
+												<c:if test="${project_detail.so_tien_tam_ung != 0}">
+													<fmt:formatNumber type="number" value="${project_detail.so_tien_tam_ung }" />
+												</c:if>
+											</td>
+											<td><fmt:formatDate value="${project_detail.ke_hoach_tam_ung}" pattern="dd / MM / yyyy" /></td>
+											<td>N/A</td>
+										</tr>
+									</table>
+								</div>
+								
+								<div class="tab-pane fade" id="detail-status"
+									role="tabpanel" aria-labelledby="deployment-tab">
+									<p>${project_detail.general_issue}</p>
+								</div>
+								<div class="tab-pane fade" id="detail-plan" role="tabpanel"
+									aria-labelledby="telecom-tab">
+									<p>${project_detail.ke_hoach}</p>
+								</div>
+								<div class="tab-pane fade" id="detail-result" role="tabpanel"
+									aria-labelledby="telecom-tab">
+									<p>${project_detail.ket_qua_thuc_hien_ke_hoach}</p>
+								</div>
 							</div>
 						</div>
-					</div>
+					</c:if>
+					<c:if test="${type == 2 || type == 3}">
+						<div class="card-body">
+							<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active text-uppercase" id="about-tab" data-toggle="tab" 
+										href="#about" role="tab" aria-controls="about" aria-selected="true">
+										Tổng quan
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" 
+										href="#detail-status" role="tab" aria-controls="contact" aria-selected="false">
+										Tình trạng
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-uppercase" id="profile-tab" data-toggle="tab" 
+										href="#detail-plan" role="tab" aria-controls="profile" aria-selected="false">
+										Kế hoạch
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" 
+										href="#detail-result" role="tab" aria-controls="contact" aria-selected="false">
+										Kết quả
+									</a>
+								</li>
+							</ul>
+							<div class="tab-content" id="myTabContent">
+								<div class="tab-pane fade show active" id="about"
+									role="tabpanel" aria-labelledby="deployment-tab">
+									<table class="table table-hover table-bordered">
+										<tr>
+											<th>Dự án/Gói thầu</th>
+											<td>${project_detail.project_name }</td>
+										</tr>
+										<tr>
+											<th>Khách hàng</th>
+											<td>${project_detail.customer }</td>
+										</tr>
+										<tr>
+											<th>Mô tả dự án</th>
+											<td>${project_detail.description }</td>
+										</tr>
+										
+										<tr>
+											<th>Tổng mức đầu tư</th>
+											<td >${project_detail.tong_muc_dau_tu_du_kien }</td>
+										</tr>
+										<tr>
+											<th>Phạm vi cung cấp</th>
+											<td>${project_detail.hinh_thuc_dau_tu}</td>
+										</tr>
+										<tr>
+											<th>Mức độ khả thi</th>
+											<td>${project_detail.muc_do_kha_thi}%</td>
+										</tr>
+										<tr>
+											<th>Người phụ trách</th>
+											<td>${project_detail.pic_name }</td>
+										</tr>
+										
+										
+									</table>
+								</div>
+								
+								<div class="tab-pane fade" id="detail-status"
+									role="tabpanel" aria-labelledby="deployment-tab">
+									<p>${project_detail.general_issue}</p>
+								</div>
+								<div class="tab-pane fade" id="detail-plan" role="tabpanel"
+									aria-labelledby="telecom-tab">
+									<p>${project_detail.ke_hoach}</p>
+								</div>
+								<div class="tab-pane fade" id="detail-result" role="tabpanel"
+									aria-labelledby="telecom-tab">
+									<p>${project_detail.ket_qua_thuc_hien_ke_hoach}</p>
+								</div>
+							</div>
+							
+						</div>
+					</c:if>
 				</div>
 			</div>
 			<div class="col-sm-4">

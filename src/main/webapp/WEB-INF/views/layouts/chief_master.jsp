@@ -15,8 +15,7 @@
     <meta name="author" content="Phoenixcoded" />
     <!-- Favicon icon -->
     <link rel="icon" href="<c:url value='/assets/images/logo/logo_ansv.png' />" type="image/x-icon">
-    <!-- vendor css -->
-    <link rel="stylesheet" href="<c:url value='/assets/css/style.css' />">
+    
     <!-- Font Awesome -->
 	<link rel="stylesheet" href="<c:url value='/assets/plugins/fontawesome-free/css/all.min.css' />">
 	<!--Carousel css  -->
@@ -24,7 +23,8 @@
 	<link rel="stylesheet" href="<c:url value='/assets/plugins/OwlCarousel/assets/owl.carousel.min.css' />">
 	
     <link rel="stylesheet" href="<c:url value='/assets/css/datatable/jquery.dataTables.min.css' />">
-    
+    <!-- vendor css -->
+    <link rel="stylesheet" href="<c:url value='/assets/css/style.css' />">
     <style>
     	.badge-size {
     		font-size: 15px;
@@ -87,6 +87,7 @@
 		var deployment_project = ${deployment_project};
 		var telecom_project = ${telecom_project};
 		var digital_transfer_project = ${digital_transfer_project};
+		
 	
 		if (deployment_project != null) {
 			/* ===== Datatable 1: Dự án Triển khai ===== */
@@ -243,9 +244,19 @@
 	       responsiveClass: true,
 	       autoplayHoverPause: true
 	   	});
-		$(document).ready(function(){
-			
+	  	
+	  	$('#table_customer_new,#table_customer_all,#table_user_all,#table_user_ban').DataTable( {
+		    
+		    "scrollX": true,
+		    "scrollCollapse": true,
+		    "paging":         false,
+		    "responsive": true,
+		    "displayLength": 25,
+		    "order": [[ 0, 'asc' ]]
+
 		});
+	  	
+	  	
 	</script>
 </body>
 </html>
