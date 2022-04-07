@@ -10,36 +10,37 @@ public class ProjectDetailDto {
 	private String priority;
 	private String project_status;
 	
+	private String customer;
 	private String currency_unit;
 	private int week;
 	private int year;
 	private String contract_code;
-	private String accounting_code;
 	
+	private String accounting_code;
 	private String project_name;
 	private String description;
 	private String tong_muc_dau_tu_du_kien;
 	private String hinh_thuc_dau_tu;
-	private int muc_do_kha_thi;
 	
+	private int muc_do_kha_thi;
 	private String phan_tich_SWOOT;
 	private String pham_vi_cung_cap;
 	private double tong_gia_tri;
 	private Date DAC;
-	private Date PAC;
 	
+	private Date PAC;
 	private Date FAC;
 	private double so_tien_tam_ung;
 	private Date ke_hoach_tam_ung;
 	private double so_tien_DAC;
-	private Date ke_hoach_thanh_toan_DAC;
 	
+	private Date ke_hoach_thanh_toan_DAC;
 	private double so_tien_PAC;
 	private Date ke_hoach_thanh_toan_PAC;
 	private double so_tien_FAC;
 	private Date ke_hoach_thanh_toan_FAC;
-	private String general_issue;
 	
+	private String general_issue;
 	private String ke_hoach;
 	private String ket_qua_thuc_hien_ke_hoach;
 	private String note;
@@ -49,6 +50,8 @@ public class ProjectDetailDto {
 		super();
 	}
 
+
+	
 	public int getDetail_id() {
 		return detail_id;
 	}
@@ -87,6 +90,14 @@ public class ProjectDetailDto {
 
 	public void setProject_status(String project_status) {
 		this.project_status = project_status;
+	}
+	
+	public String getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(String customer) {
+		this.customer = customer;
 	}
 
 	public String getCurrency_unit() {

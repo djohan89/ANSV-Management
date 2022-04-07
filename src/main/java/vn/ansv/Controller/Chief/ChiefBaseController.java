@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import vn.ansv.Service.CustomerServiceImpl;
 import vn.ansv.Service.ProjectServiceImpl;
+import vn.ansv.Service.UsersServiceImpl;
 
 @Controller
 public class ChiefBaseController {
@@ -15,6 +16,9 @@ public class ChiefBaseController {
 	
 	@Autowired
 	CustomerServiceImpl _customerService;
+	
+	@Autowired
+	UsersServiceImpl _usersService;
 	
 	public ModelAndView _mvShare = new ModelAndView();
 	

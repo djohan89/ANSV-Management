@@ -1,5 +1,7 @@
 package vn.ansv.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,10 @@ public class UsersServiceImpl implements IUsersService {
 	
 	public UsersDto getByUser(String username) {
 		return usersDao.getByUser(username);
+	}
+
+	public List<UsersDto> getAllPic() {
+		return usersDao.getAllPic();
 	}
 
 }

@@ -20,7 +20,7 @@ public class BaseDao {
 		if (type == 1) {
 			/* Cột dữ liệu cần cho chi tiết dự án Triển khai */
 			columns_select = "users.display_name AS pic_name, project_type.display AS project_type, priority.display AS priority, "
-					+ "project_status.display AS project_status, currency_unit.currency_unit, detail.week, detail.year, "
+					+ "project_status.display AS project_status, customer.customer, currency_unit.currency_unit, detail.week, detail.year, "
 					+ "detail.contract_code, detail.accounting_code, project.project_name, detail.description, "
 					+ "detail.pham_vi_cung_cap, detail.tong_gia_tri, detail.DAC, detail.PAC, detail.FAC, detail.so_tien_tam_ung, "
 					+ "detail.ke_hoach_tam_ung, detail.so_tien_DAC, detail.ke_hoach_thanh_toan_DAC, detail.so_tien_PAC, "
@@ -29,7 +29,7 @@ public class BaseDao {
 		} else if (type == 2 || type ==3) {
 			/* Cột dữ liệu cần cho chi tiết dự án Viễn thông / Chuyển đổi số */
 			columns_select = "users.display_name AS pic_name, project_type.display AS project_type, priority.display AS priority, "
-					+ "project_status.display AS project_status, currency_unit.currency_unit, detail.week, detail.year, "
+					+ "project_status.display AS project_status, customer.customer, currency_unit.currency_unit, detail.week, detail.year, "
 					+ "project.project_name, detail.description, detail.tong_muc_dau_tu_du_kien, detail.hinh_thuc_dau_tu, "
 					+ "detail.muc_do_kha_thi, detail.phan_tich_SWOOT, detail.general_issue, detail.ke_hoach, detail.ket_qua_thuc_hien_ke_hoach ";
 		}
@@ -51,6 +51,7 @@ public class BaseDao {
 					projectDetailDto.setPriority(rs.getString("priority"));
 					
 					projectDetailDto.setProject_status(rs.getString("project_status"));
+					projectDetailDto.setCustomer(rs.getString("customer"));
 					projectDetailDto.setCurrency_unit(rs.getString("currency_unit"));
 					projectDetailDto.setWeek(rs.getInt("week"));
 					projectDetailDto.setYear(rs.getInt("year"));
@@ -94,6 +95,7 @@ public class BaseDao {
 					projectDetailDto.setPriority(rs.getString("priority"));
 					
 					projectDetailDto.setProject_status(rs.getString("project_status"));
+					projectDetailDto.setCustomer(rs.getString("customer"));
 					projectDetailDto.setCurrency_unit(rs.getString("currency_unit"));
 					projectDetailDto.setWeek(rs.getInt("week"));
 					projectDetailDto.setYear(rs.getInt("year"));

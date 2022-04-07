@@ -17,6 +17,7 @@ public class UsersDtoMapper implements RowMapper<UsersDto> {
 		usersDto.setUsername(rs.getString("username"));
 		usersDto.setRole(rs.getString("role"));
 		usersDto.setDisplay_name(rs.getString("display_name"));
+		usersDto.setEnabled(rs.getInt("enabled"));
 		usersDto.setCreated_at(rs.getDate("created_at"));
 		
 		return usersDto;

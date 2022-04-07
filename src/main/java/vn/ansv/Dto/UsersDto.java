@@ -9,6 +9,7 @@ public class UsersDto {
 	private String username;
 	private String role;
 	private String display_name;
+	private int enabled;
 	private Date created_at;
 	
 	public UsersDto() {
@@ -53,6 +54,14 @@ public class UsersDto {
 
 	public void setDisplay_name(String display_name) {
 		this.display_name = display_name;
+	}
+	
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
 	}
 
 	public Date getCreated_at() {
