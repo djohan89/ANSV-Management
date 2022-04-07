@@ -45,7 +45,7 @@ public class UsersDao extends BaseDao {
 				+ "FROM users "
 				+ "INNER JOIN users_roles on users.id = users_roles.user "
 				+ "INNER JOIN role on users_roles.role = role.id "
-				+ "WHERE users.enabled = ?";
+				+ "WHERE users.enabled = ? GROUP BY users.id";
 		
 		list = _jdbcTemplate.query(sql, new UsersDtoMapper() {
 			public UsersDto mapRow(ResultSet rs, int rowNum) throws SQLException {
