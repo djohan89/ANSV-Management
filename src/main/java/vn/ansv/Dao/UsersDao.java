@@ -38,13 +38,14 @@ public class UsersDao extends BaseDao {
 		}, username);
 	}
 	
-	public List<UsersDto> getAllPic() {
+	public List<UsersDto> getAllPic(int enabled) {
 		List<UsersDto> list = new ArrayList<UsersDto>();
 		
 		String sql = "SELECT users.id, users.staff_code, users.username, role.name AS role, users.display_name, users.enabled, users.created_at "
 				+ "FROM users "
 				+ "INNER JOIN users_roles on users.id = users_roles.user "
-				+ "INNER JOIN role on users_roles.role = role.id";
+				+ "INNER JOIN role on users_roles.role = role.id "
+				+ "WHERE users.enabled = ?";
 		
 		list = _jdbcTemplate.query(sql, new UsersDtoMapper() {
 			public UsersDto mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -60,7 +61,7 @@ public class UsersDao extends BaseDao {
 				
 				return usersDto;
 			}
-		});
+		}, enabled);
 		
 		return list;
 	}

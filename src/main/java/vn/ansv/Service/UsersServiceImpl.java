@@ -19,8 +19,8 @@ public class UsersServiceImpl implements IUsersService {
 		return usersDao.getByUser(username);
 	}
 
-	public List<UsersDto> getAllPic() {
-		return usersDao.getAllPic();
+	public List<UsersDto> getAllPic(int enabled) {
+		return usersDao.getAllPic(enabled);
 	}
 
 }

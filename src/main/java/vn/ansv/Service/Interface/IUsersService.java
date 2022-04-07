@@ -12,6 +12,6 @@ public interface IUsersService {
 	
 	@Autowired
 	public UsersDto getByUser(String username);
-	public List<UsersDto> getAllPic();
+	public List<UsersDto> getAllPic(int enabled);
 
 }

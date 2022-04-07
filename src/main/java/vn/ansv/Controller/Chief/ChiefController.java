@@ -52,7 +52,9 @@ public class ChiefController extends ChiefBaseController {
 	
 	@RequestMapping(value = { "/chief/pic" }, method = RequestMethod.GET)
 	public ModelAndView view_pic() {
-		_mvShare.addObject("list_users", _usersService.getAllPic());
+		int enabled_1 = 1, enabled_2 = 0;
+		_mvShare.addObject("list_users", _usersService.getAllPic(enabled_1));
+		_mvShare.addObject("list_users_ban", _usersService.getAllPic(enabled_2));
 		_mvShare.setViewName("chief/pic");
 		
 		return _mvShare;
