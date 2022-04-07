@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 import vn.ansv.Dao.ProjectDao;
 import vn.ansv.Dto.DashboardDto;
 import vn.ansv.Dto.ProjectDetailDto;
-import vn.ansv.Service.Interface.ICeoService;
+import vn.ansv.Service.Interface.IProjectService;
 
 @Service
-public class CeoServiceImpl implements ICeoService {
+public class ProjectServiceImpl implements IProjectService {
 	
 	@Autowired
 	private ProjectDao projectDao;
@@ -154,12 +154,8 @@ public class CeoServiceImpl implements ICeoService {
 		return thong_ke;
 	}
 	
-	public ProjectDetailDto getProjectDetailLevel1(int detail_id) {
-		return projectDao.getProjectDetailLevel1(detail_id);
-	}
-
-	public ProjectDetailDto getProjectDetailLevel2(int detail_id) {
-		return projectDao.getProjectDetailLevel2(detail_id);
+	public ProjectDetailDto getProjectDetail(int type, int detail_id) {
+		return projectDao.getProjectDetail(type, detail_id);
 	}
 
 }

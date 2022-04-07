@@ -12,16 +12,14 @@
 				<div class="row align-items-center">
 					<div class="col-md-12">
 						<div class="page-header-title float-left">
-							<h5 class="m-b-10">
-								Chi tiết dự án - <b>CEO</b>
-							</h5>
+							<h5 class="m-b-10">Chi tiết dự án</h5>
 						</div>
 						<ul class="breadcrumb float-right">
 							<li class="breadcrumb-item">
 								<a href="#"><i class="feather icon-home"></i></a>
 							</li>
 							<li class="breadcrumb-item">
-								<a href="#">Dashboard Analytics</a>
+								<a href="<c:url value='/chief/dashboard/${week}_${year}' />">Dashboard Analytics</a>
 							</li>
 							<li class="breadcrumb-item">
 								<a href="JavaScript:Void(0);">Project detail</a>

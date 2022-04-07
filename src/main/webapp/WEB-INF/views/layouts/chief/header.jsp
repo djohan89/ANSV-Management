@@ -5,7 +5,7 @@
 <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
 	<div class="m-header">
 		<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-		<a href="#" class="b-brand">
+		<a href="<c:url value='/chief/dashboard/${week}_${year}' />" class="b-brand">
 			<!-- ========   change your logo hear   ============ -->
 			<img src="<c:url value='/assets/images/logo/ANSV_logo.png' />" style="width: 80%;" alt="" class="logo pl-4">
 			<img src="<c:url value='/assets/images/logo-icon.png' />" alt="" class="logo-thumb">

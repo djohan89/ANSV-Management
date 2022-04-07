@@ -4,13 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
-import vn.ansv.Service.CeoServiceImpl;
+import vn.ansv.Service.CustomerServiceImpl;
+import vn.ansv.Service.ProjectServiceImpl;
 
 @Controller
 public class ChiefBaseController {
 
 	@Autowired
-	CeoServiceImpl _ceoService;
+	ProjectServiceImpl _projectService;
+	
+	@Autowired
+	CustomerServiceImpl _customerService;
 	
 	public ModelAndView _mvShare = new ModelAndView();
 	

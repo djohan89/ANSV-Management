@@ -32,10 +32,16 @@
 				    <label>Điều hướng</label>
 				</li>
 				<li class="nav-item">
-				    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+				    <a href="<c:url value='/chief/dashboard/${week}_${year}' />" class="nav-link ">
+				    	<span class="pcoded-micon"><i class="feather icon-home"></i></span>
+				    	<span class="pcoded-mtext">Dashboard</span>
+				   	</a>
 				</li>
 				<li class="nav-item">
-				    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Khách hàng</span></a>
+				    <a href="<c:url value='/chief/customer' />" class="nav-link ">
+				    	<span class="pcoded-micon"><i class="feather icon-users"></i></span>
+				    	<span class="pcoded-mtext">Khách hàng</span>
+				    </a>
 				</li>
 				<li class="nav-item">
 				    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">PIC</span></a>
