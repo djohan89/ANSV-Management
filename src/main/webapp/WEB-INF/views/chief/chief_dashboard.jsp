@@ -133,6 +133,7 @@
 			<div class="col-sm-12">
 				<div class="card">
 					<div class="card-header">
+					<!--Phần modal   -->
 						<div id="slideshow_project" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content" style="height: 100%!important;">
@@ -141,40 +142,35 @@
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									</div>
 									<div class="modal-body">
-										<div id="carouselExampleIndicatorscaption" class="carousel slide" data-ride="carousel">
-											<ol class="carousel-indicators">
-												<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-												<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-												<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-											</ol>
-											<div class="carousel-inner">
-												<c:forEach items="${deployment_project}" var="deployment" varStatus="deployment_index">
-													<c:if test="${deployment_index.first}">
-														<div class="carousel-item active pl-4 pr-4">
-															${deployment.project_name}
-														</div>
-													</c:if>
-													<c:if test="${not deployment_index.first}">
-														<div class="carousel-item pl-4 pr-4">
-															${deployment.project_name}
-														</div>
-													</c:if>
-												</c:forEach>
-											</div>
-											<a class="carousel-control-prev" href="#carouselExampleIndicatorscaption" role="button" data-slide="prev">
+										<div id="carousel" class="owl-carousel owl-theme" data-ride="carousel">
+											<c:forEach items="${deployment_project}" var="deployment" varStatus="deployment_index">
+												<div class="container item">
+												<!-- Item -->
+													<div class="row d-flex">
+														<h5 class="pb-2 pt-1 pl-3" style="width: 97%; background: red; border-radius: 16px; text-align: center;">
+															<a href="javascript:void(0)" style="color: #fff; font-weight: bold;">${deployment.project_name }</a>
+														</h5>
+														
+													</div>
+												<!-- End Item -->
+												</div>
+											</c:forEach>
+											
+											<!-- <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
 												<i class="fas fa-angle-left text-dark" style="margin-left: -93%; font-size: 50px;"></i>
 											</a>
-											<a class="carousel-control-next" href="#carouselExampleIndicatorscaption" role="button" data-slide="next">
+											<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
 												<i class="fas fa-angle-right text-dark" style="margin-right: -93%; font-size: 50px;"></i>
-											</a>
+											</a> -->
 										</div>
 									</div>
-									<div class="modal-footer">
+									<!-- <div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>
+					<!-- End Modal -->
 						<h5>
 							Giám sát công việc 
 							<button type="button" class="btn btn-light ml-3 pt-1 pb-1" data-toggle="modal" data-target="#slideshow_project">
